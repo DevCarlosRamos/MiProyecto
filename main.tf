@@ -6,11 +6,6 @@ provider "azurerm" {
 
   features {}
 }
-# crear usurio de app y darle permisos
-# az ad sp create-for-rbac --name terraform
-# az role assignment create --assignee 8a9c68c4-5478-4e02-b42e-a60c6e6e2573 --role "Resource Policy Contributor" --scope /subscriptions/8dcc0435-9f67-4310-9ca8-3cdc5fe6a09c
-# az role assignment create --assignee 8a9c68c4-5478-4e02-b42e-a60c6e6e2573 --role "Contributor" --scope /subscriptions/8dcc0435-9f67-4310-9ca8-3cdc5fe6a09c
-# az ad sp delete --id 8a9c68c4-5478-4e02-b42e-a60c6e6e2573
 
 resource "azurerm_resource_group" "example" {
   name     = "myResourceGroup"
@@ -77,10 +72,3 @@ resource "azurerm_linux_virtual_machine" "example" {
   }
 }
 
-# Para saber su ip piblica.
-# az vm show -d --resource-group myResourceGroup --name myVM -o tsv --query publicIps
-# ssh adminuser@52.179.9.6
-
-# para que terraform no te pida el yes.
-# terraform apply -auto-approve
-# terraform destroy -auto-approve
